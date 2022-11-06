@@ -25,6 +25,7 @@ public class AnimalFactoryTest {
         Assert.assertEquals(expectedDogName, actualDogName);
         Assert.assertEquals(expectedBirthday, actualDogBirthday);
     }
+
     //TODO - Create Test for `Animal createCat(String name, Date birthDate)`
     @Test
     public void createCatTest() {
