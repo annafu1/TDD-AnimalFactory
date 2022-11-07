@@ -35,34 +35,54 @@ public class DogHouseTest {
     @Test
     public void removeDogIdTest() {
         //Give
-        String expectedDogName = "Susan";
-        Date expectedBirthday = new Date (1927, 4,15);
-        Integer expectedId = 4151927;
+        String expectedDogName = "Willie";
+        String expectedDogName2 = "Stroy";
+        String expectedDogName3 = "Flour";
+        Date expectedBirthday = new Date (1945, 5,24);
+        Date expectedBirthday2 = new Date (1594, 10,29);
+        Date expectedBirthday3 = new Date (1492, 3,27);
+        Integer expectedId = 5241945;
+        Integer expectedId2 = 10291594;
+        Integer expectedId3 = 3271492;
         DogHouse.clear();
         //When
         Dog dog = new Dog (expectedDogName, expectedBirthday, expectedId);
+        Dog dog2 = new Dog (expectedDogName2, expectedBirthday2, expectedId2);
+        Dog dog3 = new Dog (expectedDogName3, expectedBirthday3, expectedId3);
         DogHouse.add(dog);
-        DogHouse.remove(dog.getId());
-        Integer actual = expectedId;
+        DogHouse.add(dog2);
+        DogHouse.add(dog3);
+        DogHouse.remove(expectedId);
+        int actual = new DogHouse().getNumberOfDogs();
         //Then
-        Assert.assertEquals(expectedId, actual);
+        Assert.assertEquals(2,actual);
     }
 
     // TODO - Create tests for `void remove(Dog dog)`
     @Test
     public void removeDogTest() {
         //Give
-        String expectedDogName = "Susan";
-        Date expectedBirthday = new Date (1927, 4,15);
-        Integer expectedId = 4151927;
+        String expectedDogName = "Willie";
+        String expectedDogName2 = "Stroy";
+        String expectedDogName3 = "Flour";
+        Date expectedBirthday = new Date (1945, 5,24);
+        Date expectedBirthday2 = new Date (1594, 10,29);
+        Date expectedBirthday3 = new Date (1492, 3,27);
+        Integer expectedId = 5241945;
+        Integer expectedId2 = 10291594;
+        Integer expectedId3 = 3271492;
         DogHouse.clear();
-        Integer expectedNumberDogs = new DogHouse().getNumberOfDogs();
         //When
         Dog dog = new Dog (expectedDogName, expectedBirthday, expectedId);
-        DogHouse.remove(dog);
-        Integer actual = new DogHouse().getNumberOfDogs();
+        Dog dog2 = new Dog (expectedDogName2, expectedBirthday2, expectedId2);
+        Dog dog3 = new Dog (expectedDogName3, expectedBirthday3, expectedId3);
+        DogHouse.add(dog);
+        DogHouse.add(dog2);
+        DogHouse.add(dog3);
+        DogHouse.remove(dog2);
+        int actual = new DogHouse().getNumberOfDogs();
         //Then
-        Assert.assertEquals(expectedNumberDogs, actual);
+        Assert.assertEquals(2, actual);
     }
 
 
