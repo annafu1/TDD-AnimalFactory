@@ -35,16 +35,26 @@ public class CatHouseTest {
     public void removeCatIdTest() {
         //Give
         String expectedCatName = "Winston";
+        String expectedCatName2 = "Billie";
+        String expectedCatName3 = "Flo";
         Date expectedBirthday = new Date (1995, 5,24);
+        Date expectedBirthday2 = new Date (1994, 10,29);
+        Date expectedBirthday3 = new Date (1992, 3,27);
         Integer expectedId = 5241995;
+        Integer expectedId2 = 10291994;
+        Integer expectedId3 = 3271992;
         CatHouse.clear();
         //When
         Cat cat = new Cat (expectedCatName, expectedBirthday, expectedId);
+        Cat cat2 = new Cat (expectedCatName2, expectedBirthday2, expectedId2);
+        Cat cat3 = new Cat (expectedCatName3, expectedBirthday3, expectedId3);
         CatHouse.add(cat);
-        CatHouse.remove(cat.getId());
-        Integer actual = expectedId;
+        CatHouse.add(cat2);
+        CatHouse.add(cat3);
+        CatHouse.remove(expectedId);
+        int actual = new CatHouse().getNumberOfCats();
         //Then
-        Assert.assertEquals(expectedId, actual);
+        Assert.assertEquals(2,actual);
     }
 
     // TODO - Create tests for `void remove(Cat cat)`
@@ -52,16 +62,26 @@ public class CatHouseTest {
     public void removeCatTest() {
         //Give
         String expectedCatName = "Winston";
+        String expectedCatName2 = "Billie";
+        String expectedCatName3 = "Flo";
         Date expectedBirthday = new Date (1995, 5,24);
+        Date expectedBirthday2 = new Date (1994, 10,29);
+        Date expectedBirthday3 = new Date (1992, 3,27);
         Integer expectedId = 5241995;
+        Integer expectedId2 = 10291994;
+        Integer expectedId3 = 3271992;
         CatHouse.clear();
-        Integer expectedNumberCats = new CatHouse().getNumberOfCats();
         //When
         Cat cat = new Cat (expectedCatName, expectedBirthday, expectedId);
-        CatHouse.remove(cat);
-        Integer actual = new CatHouse().getNumberOfCats();
+        Cat cat2 = new Cat (expectedCatName2, expectedBirthday2, expectedId2);
+        Cat cat3 = new Cat (expectedCatName3, expectedBirthday3, expectedId3);
+        CatHouse.add(cat);
+        CatHouse.add(cat2);
+        CatHouse.add(cat3);
+        CatHouse.remove(cat2);
+        int actual = new CatHouse().getNumberOfCats();
         //Then
-        Assert.assertEquals(expectedNumberCats, actual);
+        Assert.assertEquals(2, actual);
     }
 
 
